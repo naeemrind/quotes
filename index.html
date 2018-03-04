@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quotes</title>
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Random Quotes</h1>
+        <div class="wrapper">
+            <div class="inner">
+                <div id="quote"></div>
+                <div id="author"></div>
+            </div>
+        </div>
+    </div>
+    
+    <h6 id="nxtQuote">Next Quote</h6>
+<!--    <input id="nxtQuote" type="button" name="Next" value="Next Quote">-->
+    <footer>
+        <p>2018, &copy; Naeem Rind</p>
+    </footer>
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(window).on('load', function() {
+
+
+            var quotes = ['Discipline is the bridge between Goals and Accomplishment', 'The only impossible journey is the one you never begin', 'By changing nothing, nothing changes', 'Without continual growth and progress, such words as improvement, achievement, and success have no meaning', 'Excuses are nails used to build a house of Failure', 'A room without books is like a body without a soul', 'Our greatest glory is not in never falling but in rising every time we fall', 'The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty', 'Never give up! Failure and rejection are only the first step to succeeding', 'If you have goals and procrastination you have nothing. If you have goals and you take action, you will have anything you want', 'Strong minds discuss ideas, average minds discuss events, weak minds discuss people', 'Success seems to be connected to action. Successful people keep moving. They make mistakes, but they don’t quit', 'Success is a journey not a destination. The doing is usually more important than the outcome'];
+
+            var author = ['- Jim Rohn', '- Tony Robbins', '- Tony Robbins', '- Benjamin Franklin', '- Jim Rohn', '- Marcus Tullius Cicero', '- Confucius', '- Winston Churchill', '- Jimmy Valvano', '- Thomas J. Vilord', '- Socrates', '- Conrad Hilton', '- Arthur Ashe'];
+
+            fetchQuote(quotes, author);
+
+            $('#nxtQuote').click(function() {
+                fetchQuote(quotes, author);
+                $('#quote').fadeIn();
+            });
+
+
+            function fetchQuote(q, a) {
+                var quoteNum = Math.floor(Math.random() * quotes.length);
+                $('#quote').text(q[quoteNum]);
+                $('#author').text(a[quoteNum]);
+            }
+
+
+            // Change BG
+            //            var colors = ["#94a4be", "#d3a3a3", "#81e6cb", "#a3abb9", "#ebd3c4"];
+            //
+            //            $("#nxtQuote").click(function() {
+            //                var rand = Math.floor(Math.random() * colors.length);
+            //                $(".container").css("background-color", colors[rand]);
+            //            })
+
+
+
+        });
+    </script>
+</body>
+
+</html>
